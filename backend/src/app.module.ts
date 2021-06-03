@@ -13,13 +13,10 @@ import { ServeStaticModule } from '@nestjs/serve-static';
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
     MongooseModule.forRoot(
-      `mongodb+srv://db_name:db_pass@cluster0.aqvmm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+      `mongodb+srv://db_name:db_pass@cluster0.aqvmm.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`,
       {
-        user: process.env.DATABASE_USER,
-        pass: process.env.DATABASE_PASSWORD,
         useCreateIndex: true,
         useFindAndModify: false,
-        dbName: process.env.DATABASE_NAME,
       },
     ),
     ProductsModule,
