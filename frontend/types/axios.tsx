@@ -1,5 +1,5 @@
-export interface PaginatedResponse {
-    data: [];
+export interface PaginatedResponse<Generic> {
+    data: Generic[];
     total: number;
     limit: number;
     pages: number;
