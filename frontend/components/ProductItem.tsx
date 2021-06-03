@@ -1,5 +1,6 @@
 import React from 'react';
 import {IProduct} from "../types/product";
+import {Grid} from "@material-ui/core";
 
 //material-ui
 import Card from '@material-ui/core/Card';
@@ -17,30 +18,32 @@ interface TrackItemProps {
 const ProductItem: React.FC<TrackItemProps> = ({product}) => {
     
     return (
-        <Card className="product-card">
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    alt="product picture"
-                    height="140"
-                    className="product-card__picture"
-                    image="/asets/default-box.svg"
-                />
-                <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                    {product.name}
-                </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    {product.origin}
-                </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions>
-                <Button size="small" color="primary">
-                Learn More
-                </Button>
-            </CardActions>
-        </Card>
+        <Grid item xs={12} sm={6} md={3}>
+            <Card className="product-card">
+                <CardActionArea>
+                    <CardMedia
+                        component="img"
+                        alt="product picture"
+                        height="140"
+                        className="product-card__picture"
+                        image={product.picture ? product.picture : "/asets/default-box.svg"}
+                    />
+                    <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                        {product.name}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                        {product.origin}
+                    </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                    <Button size="small" color="primary">
+                    Learn More
+                    </Button>
+                </CardActions>
+            </Card>
+        </Grid>
     );
 };
 
