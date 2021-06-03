@@ -11,7 +11,6 @@ export const productReducer = (state = initialState, action: ProductAction): Pro
         case ProductActionTypes.FETCH_PRODUCTS:
             return {loading: true, error: null, products: []}
         case ProductActionTypes.FETCH_PRODUCTS_SUCCESS:
-            console.log('success', action.payload)
             return {loading: false, error: null, products: action.payload}
         case ProductActionTypes.FETCH_PRODUCTS_ERROR:
             return {loading: false, error: action.payload, products: []}

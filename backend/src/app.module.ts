@@ -21,6 +21,11 @@ import * as mongoosePaginate from 'mongoose-paginate-v2';
         connectionFactory: (connection) => {
           mongoosePaginate.paginate.options = {
             limit: process.env.PAGINATION || 2,
+            customLabels: {
+              docs: 'data',
+              totalDocs: 'total',
+              totalPages: 'pages',
+            },
           };
           connection.plugin(mongoosePaginate);
 
