@@ -7,13 +7,11 @@ const storage = new Storage();
 export class FileService {
   async createFile(file): Promise<string> {
     try {
-      const fileExtension = file.originalname.split('.').pop();
-      const fileName = uuid.v4() + '.' + fileExtension;
       await storage.bucket(process.env.BUCKET_NAME).upload(file.path, {
         destination: file.filename,
       });
 
-      return fileName;
+      return file.filename;
     } catch (e) {
       throw new HttpException(e.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
