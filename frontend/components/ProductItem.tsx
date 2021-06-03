@@ -1,6 +1,6 @@
 import React from 'react';
 import {IProduct} from "../types/product";
-import {Grid} from "@material-ui/core";
+import {Grid, Box} from "@material-ui/core";
 
 //material-ui
 import Card from '@material-ui/core/Card';
@@ -32,14 +32,20 @@ const ProductItem: React.FC<TrackItemProps> = ({product}) => {
                     <Typography gutterBottom variant="h5" component="h2">
                         {product.name}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {product.origin}
-                    </Typography>
+                    
+                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                        <Typography variant="body1" component="p">
+                            ${product.price}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {product.origin}
+                        </Typography>
+                    </Box>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
                     <Button size="small" color="primary">
-                    Learn More
+                        Learn More
                     </Button>
                 </CardActions>
             </Card>
