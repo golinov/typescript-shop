@@ -9,18 +9,21 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({products}) => {
     return (
-            <div>
+            <Grid container spacing={4}>
                 {products ? (
                     products.map(product =>
-                        <ProductItem
-                            key={product._id}
-                            product={product}
-                        />
+                        <Grid item xs={12} sm={6} md={3}>
+                            <ProductItem
+                                key={product._id}
+                                product={product}
+                            />
+                        </Grid>
+                        
                     )
                 ) : (
                     <h1>Loading...</h1>
                 )}
-            </div>
+            </Grid>
     );
 };
 
