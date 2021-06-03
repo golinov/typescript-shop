@@ -1,5 +1,4 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import * as uuid from 'uuid';
 import { Storage } from '@google-cloud/storage';
 const storage = new Storage();
 
