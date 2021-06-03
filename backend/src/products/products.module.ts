@@ -4,6 +4,7 @@ import { ProductsController } from './products.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Product, ProductSchema } from './entities/product.entity';
 import { AuthModule } from '../auth/auth.module';
+import { FileService } from '../file/file.service';
 
 @Module({
   imports: [
@@ -11,6 +12,6 @@ import { AuthModule } from '../auth/auth.module';
     forwardRef(() => AuthModule),
   ],
   controllers: [ProductsController],
-  providers: [ProductsService],
+  providers: [ProductsService, FileService],
 })
 export class ProductsModule {}

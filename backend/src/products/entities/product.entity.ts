@@ -3,7 +3,14 @@ import { Document } from 'mongoose';
 
 export type ProductDocument = Product & Document;
 
-@Schema()
+@Schema({
+  toJSON: {
+    transform: (doc, ret) => {
+      if (doc.picture)
+        ret.picture = `${process.env.GOOGLE_API}/${process.env.BUCKET_NAME}/${ret.picture}`;
+    },
+  },
+})
 export class Product {
   @Prop({ required: true })
   name: string;

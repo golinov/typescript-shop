@@ -5,9 +5,7 @@ export class CreateProductDto {
   @IsNotEmpty()
   readonly name: string;
 
-  @Min(0)
   @IsNotEmpty()
-  @IsNumber()
   readonly price: number;
 
   @IsNotEmpty()
