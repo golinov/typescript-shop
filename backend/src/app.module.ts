@@ -12,13 +12,16 @@ import { ServeStaticModule } from '@nestjs/serve-static';
   imports: [
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({ rootPath: path.resolve(__dirname, 'static') }),
-    MongooseModule.forRoot(`mongodb://${process.env.DATABASE_HOST}/`, {
-      user: process.env.DATABASE_USER,
-      pass: process.env.DATABASE_PASSWORD,
-      useCreateIndex: true,
-      useFindAndModify: false,
-      dbName: process.env.DATABASE_NAME,
-    }),
+    MongooseModule.forRoot(
+      `mongodb+srv://db_name:db_pass@cluster0.aqvmm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+      {
+        user: process.env.DATABASE_USER,
+        pass: process.env.DATABASE_PASSWORD,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        dbName: process.env.DATABASE_NAME,
+      },
+    ),
     ProductsModule,
     AuthModule,
   ],
