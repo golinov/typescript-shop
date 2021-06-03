@@ -3,6 +3,7 @@ export interface IProduct {
     name: string;
     price: number;
     origin: OriginTypes;
+    picture: string;
 }
 
 type OriginTypes = 'asia' | 'usa';

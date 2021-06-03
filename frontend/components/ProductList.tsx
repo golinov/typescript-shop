@@ -1,6 +1,6 @@
 import React from 'react';
 import {IProduct} from "../types/product";
-import {Box, Grid} from "@material-ui/core";
+import {Grid} from "@material-ui/core";
 import ProductItem from "./ProductItem";
 
 interface ProductListProps {
@@ -9,18 +9,19 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({products}) => {
     return (
-            <div>
+            <Grid container spacing={4}>
                 {products ? (
                     products.map(product =>
-                        <ProductItem
-                            key={product._id}
-                            product={product}
-                        />
+                        
+                            <ProductItem
+                                key={product._id}
+                                product={product}
+                            />
                     )
                 ) : (
                     <h1>Loading...</h1>
                 )}
-            </div>
+            </Grid>
     );
 };
 
