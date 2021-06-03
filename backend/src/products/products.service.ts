@@ -1,21 +1,22 @@
 import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { Model } from 'mongoose';
+import { PaginateModel, PaginateResult } from 'mongoose';
 import { Product, ProductDocument } from './entities/product.entity';
 import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class ProductsService {
   constructor(
-    @InjectModel(Product.name) private productModel: Model<ProductDocument>,
+    @InjectModel(Product.name)
+    private productModel: PaginateModel<ProductDocument>,
   ) {}
   create(createProductDto: CreateProductDto) {
     return this.productModel.create(createProductDto);
   }
 
-  findAll() {
-    return this.productModel.find();
+  async findAll(page = 1): Promise<PaginateResult<ProductDocument>> {
+    return this.productModel.paginate({}, { page });
   }
 
   findOne(id: number) {

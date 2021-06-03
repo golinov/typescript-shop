@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import * as path from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import * as mongoosePaginate from 'mongoose-paginate-v2';
 
 @Module({
   imports: [
@@ -17,6 +18,14 @@ import { ServeStaticModule } from '@nestjs/serve-static';
       {
         useCreateIndex: true,
         useFindAndModify: false,
+        connectionFactory: (connection) => {
+          mongoosePaginate.paginate.options = {
+            limit: process.env.PAGINATION || 2,
+          };
+          connection.plugin(mongoosePaginate);
+
+          return connection;
+        },
       },
     ),
     ProductsModule,

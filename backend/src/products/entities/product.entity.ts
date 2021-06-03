@@ -13,6 +13,9 @@ export class Product {
 
   @Prop({ required: true, enum: ['usa', 'europe', 'asia'] })
   origin: string;
+
+  @Prop()
+  picture: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
