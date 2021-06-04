@@ -8,7 +8,7 @@ async function bootstrap() {
   const PORT = process.env.PORT || 3000;
   app.setGlobalPrefix('api');
   app.enableCors();
-  app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
   const options = new DocumentBuilder()
     .setTitle('Shop')
     .setVersion('1.0')
