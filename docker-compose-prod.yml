@@ -7,7 +7,7 @@ services:
       args:
         UID: ${DOCKER_UID}
         GID: ${DOCKER_GID}
-    entrypoint: sh -c "cd /var/www && yarn && npm run start:prod"
+    entrypoint: sh -c "cd /var/www && npm i && npm run build && npm run start:prod"
     depends_on:
       - db
     volumes:
@@ -20,7 +20,7 @@ services:
         UID: ${DOCKER_UID}
         GID: ${DOCKER_GID}
     restart: always
-    entrypoint: sh -c "cd /var/www && yarn && yarn build && yarn start"
+    entrypoint: sh -c "cd /var/www && npm i && yarn build && yarn start"
     depends_on:
       - nginx
     volumes:
