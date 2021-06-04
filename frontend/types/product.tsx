@@ -6,7 +6,7 @@ export interface IProduct {
     picture: string;
 }
 
-type OriginTypes = 'asia' | 'usa';
+type OriginTypes = 'asia' | 'usa' | 'europe';
 
 export interface ProductState {
     products: IProduct[];
