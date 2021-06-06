@@ -1,7 +1,8 @@
 import React, {FC} from 'react';
 import {AppProps} from 'next/app';
-import {wrapper} from "../store";
+import {wrapper} from '../store';
 import { createGlobalStyle } from 'styled-components'
+import '../utils/axios'
 
 const GlobalStyle = createGlobalStyle`
     .product-card {
