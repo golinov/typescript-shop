@@ -35,11 +35,9 @@ export class AuthService {
       .findOne({ email: userDto.email })
       .select('+password')
       .exec();
-    console.log(user);
-    const passwordEquals = await bcrypt.compare(
-      userDto.password,
-      user.password,
-    );
+    const passwordEquals = user
+      ? await bcrypt.compare(userDto.password, user.password)
+      : null;
     if (user && passwordEquals) {
       return user;
     }
