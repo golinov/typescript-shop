@@ -1,10 +1,12 @@
 import {combineReducers} from "redux";
 import {productReducer} from "./productReducer";
 import {HYDRATE} from "next-redux-wrapper";
+import {authReducer} from "./authReducer";
 
 
 export const rootReducer = combineReducers({
-    product: productReducer
+    product: productReducer,
+    auth: authReducer
 })
 
 export const reducer = (state, action) => {
