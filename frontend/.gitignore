@@ -1,4 +1,4 @@
-.env
+.env.development.local
 package-lock.json
 node_modules
 yarn.lock

@@ -1,16 +1,13 @@
 import React from 'react';
 import MainLayout from "../../layouts/MainLayout";
-import Auth, {LoginProps} from "../../components/Auth/Auth"
+import Auth from "../../components/Auth/Auth"
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 const Login = () => {
-    const credentials: LoginProps = {
-        email: 'test',
-        password: 'test'
-    }
-
+    const {error, isAuth} = useTypedSelector(state => state.auth)
     return (
         <MainLayout>
-            <Auth email={credentials.email} password={credentials.password}/>
+            <Auth/>
         </MainLayout>
     );
 };

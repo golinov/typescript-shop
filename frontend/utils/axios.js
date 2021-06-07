@@ -1,3 +1,3 @@
 import axios from "axios";
 
-export default axios.defaults.baseURL = process.env.BASE_URL || 'http://localhost/api'
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL

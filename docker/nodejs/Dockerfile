@@ -9,7 +9,7 @@ RUN npm i -g @nestjs/cli
 ARG UID
 ARG GID
 
-RUN apk --no-cache add shadow \
+RUN apk --no-cache add shadow curl \
     && usermod -u $UID node \
     && groupmod -g $GID node
 
