@@ -1,13 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import {useTheme} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -23,6 +21,7 @@ const menuItems = [
     {text: 'Home', href: '/'},
     {text: 'My products', href: 'my-products'},
     {text: 'My purchases', href: 'my-purchases'},
+    {text: 'Auth', href: 'auth/login'},
 ]
 
 
@@ -55,7 +54,7 @@ export default function Navbar() {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap>
-                        Persistent drawer
+                        Shop
                     </Typography>
                 </Toolbar>
             </AppBar>
